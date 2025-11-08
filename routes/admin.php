@@ -1,6 +1,7 @@
 <?php 
 /****************** ADMIN MIDDLEWARE PAGES ROUTES START****************/
 
+use App\Http\Controllers\Admin\CenterController;
 use App\Http\Controllers\Admin\DownloadController;
 use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\StudentController;
@@ -15,7 +16,13 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','middleware' => 'auth:user'], 
         /*******************USER ROUTE START*************/       
         Route::resource('user',UserController::class);
         /*******************USER ROUTE END*************/    
+        /*******************CENTER ROUTE START*************/       
+        Route::resource('center',CenterController::class);
+        /*******************CENTER ROUTE END*************/   
         /*******************STUDENT ROUTE START*************/       
+        Route::get('student/import',[StudentController::class,'importForm'])->name('student.import');
+        Route::post('student/import',[StudentController::class,'import'])->name('student.import.store');
+        Route::get('student/export-demo',[StudentController::class,'exportDemo'])->name('student.export.demo');
         Route::resource('student',StudentController::class);
         /*******************STUDENT ROUTE END*************/   
         /*******************DOWNLOAD ROUTE START*************/       

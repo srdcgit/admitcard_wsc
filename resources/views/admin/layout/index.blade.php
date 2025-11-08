@@ -162,6 +162,12 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="{{route('admin.center.index')}}" class="nav-link {{Request::is('admin/center*')?'active':''}}">
+								<i class="icon-home4"></i>
+								<span>Center</span>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="{{route('admin.student.index')}}" class="nav-link {{Request::is('admin/student')?'active':''}}">
 								<i class="icon-home4"></i>
 								<span>Student</span>
@@ -248,7 +254,7 @@
 
 
 	<script src="{{asset('user_asset/assets/js/toastr.js')}}"></script>
-	@toastr_render
+	{{-- @toastr_render --}}
 	@yield('scripts')
 </body>
 </html>

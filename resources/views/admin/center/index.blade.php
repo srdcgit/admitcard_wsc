@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 
 @section('title')
-    All Students
+    All Centers
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 <div class="card">
     
     <div class="card-header header-elements-inline">
-        <h5 class="card-title">All Students</h5>
+        <h5 class="card-title">All Centers</h5>
         <div class="header-elements">
             <div class="list-icons">
                 <a class="list-icons-item" data-action="collapse"></a>
@@ -19,11 +19,8 @@
     </div>
     <div class="card-body">
         <div class="text-right mb-3">
-            <a href="{{route('admin.student.export.demo')}}" class="btn btn-success">
-                <i class="icon-download4 mr-2"></i>Export Demo CSV
-            </a>
-            <a href="{{route('admin.student.import')}}" class="btn btn-primary">
-                <i class="icon-upload4 mr-2"></i>Import Students
+            <a href="{{route('admin.center.create')}}" class="btn btn-primary">
+                <i class="icon-plus-circle2 mr-2"></i>Add New Center
             </a>
         </div>
         <div class="table-responsive">
@@ -31,39 +28,34 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Application ID#</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Role Number</th>
-                        <th>DOB</th>
-                        <th>Folder Number</th>
-                        <th>Center</th>
+                        <th>Address</th>
+                        <th>Contact Person</th>
+                        <th>Contact Number</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     
-                    @foreach ($students  as $key => $student)
+                    @foreach ($centers  as $key => $center)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$student->application_id}}</td>
-                        <td>{{$student->name}}</td>
-                        <td>{{$student->email}}</td>
-                        <td>{{$student->roll_number}}</td>
-                        <td>{{$student->dob}}</td>
-                        <td>{{$student->folder_number}}</td>
-                        <td>{{$student->center->name ?? 'N/A'}}</td>
-                        {{-- <td>
-                            <a href="{{route('admin.student.edit',$student->id)}}" class="btn btn-primary btn-sm">
+                        <td>{{$center->name}}</td>
+                        <td>{{$center->address}}</td>
+                        <td>{{$center->contact_person}}</td>
+                        <td>{{$center->contact_number}}</td>
+                        <td>
+                            <a href="{{route('admin.center.edit',$center->id)}}" class="btn btn-primary btn-sm">
                                 <i class="icon-pencil7"></i> Edit
                             </a>
-                            <form action="{{route('admin.student.destroy',$student->id)}}" method="POST" style="display: inline-block;" onsubmit="return confirm('Are you sure you want to delete this student?');">
+                            <form action="{{route('admin.center.destroy',$center->id)}}" method="POST" style="display: inline-block;" onsubmit="return confirm('Are you sure you want to delete this center?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="icon-trash"></i> Delete
                                 </button>
                             </form>
-                        </td> --}}
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -76,3 +68,4 @@
 @endsection
 @section('scripts')
 @endsection
+

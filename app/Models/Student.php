@@ -25,4 +25,9 @@ class Student extends Model
         'roll_number',
         'center_detail'
     ];
+
+    public function center()
+    {
+        return $this->belongsTo(Center::class, 'center_detail', 'id');
+    }
 }

@@ -95,6 +95,19 @@
                                         background-color: black;
                                         color: white;"><strong>THE HIGH COURT OF ORISSA</strong></h1>
                                     </div>
+                                    <div class="col-3">
+                                        <div class="col-3 text-center">
+                                            {!! QrCode::size(150)->generate(
+                                                route('scan', [
+                                                    'roll' => $student->application_id,
+                                                    'name' => $student->name,
+                                                    'center' => $student->center->name
+                                                ])
+                                            ) !!}
+                                        </div>
+                                        
+                                        
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -112,7 +125,7 @@
                                         <div class="row">
                                             <div class="col-7 ml-4" style="margin-top:30px">
                                                 <h2>Roll No.         : <strong>{{$student->application_id}}</strong></h2>
-                                                <h2>Candidate�s Name : <strong>{{$student->name}}</strong></h2>
+                                                <h2>Candidate's Name : <strong>{{$student->name}}</strong></h2>
                                                 <h2>Date of Birth    : <strong>{{Carbon\Carbon::parse($student->dob)->format('M d , Y')}}</strong></h2>
                                                 <h2>Parent/Guardian Name    : <strong>{{$student->father_name}}</strong></h2>
                                             </div>
@@ -165,7 +178,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-12 border-single">
                                         <h2 class="text-center"><strong><u>VENUE</u></strong></h2>
-                                        <h2 class="text-center"><strong>{{$student->center_detail}}</strong></h2>
+                                        <h2 class="text-center"><strong>{{$student->center->name}}, {{$student->center->address}}</strong></h2>
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top:10px;">

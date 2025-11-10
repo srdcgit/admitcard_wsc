@@ -37,13 +37,13 @@
                     @foreach ($downloads  as $key => $download)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$download->student->application_id}}</td>
-                        <td>{{$download->student->name}}</td>
-                        <td>{{$download->student->email}}</td>
-                        <td>{{$download->student->roll_number}}</td>
-                        <td>{{$download->student->dob}}</td>
-                        <td>{{$download->student->folder_number}}</td>
-                        <td>{{$download->student->center_detail}}</td>
+                        <td>{{$download->student->application_id ?? 'NULL'}}</td>
+                        <td>{{$download->student->name ?? 'NULL'}}</td>
+                        <td>{{$download->student->email ?? 'NULL'}}</td>
+                        <td>{{$download->student->roll_number ?? 'NULL'}}</td>
+                        <td>{{$download->student->dob ?? 'NULL'}}</td>
+                        <td>{{$download->student->folder_number ?? 'NULL'}}</td>
+                        <td>{{$download->student->center_detail ?? 'NULL'}}</td>
                     </tr>
                     @endforeach
                 </tbody>

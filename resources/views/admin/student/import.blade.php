@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="text-center mb-4">
-                    <a href="{{route('admin.student.export.demo')}}" class="btn btn-success btn-lg">
+                    <a href="{{route('admin.student.export.template')}}" class="btn btn-success btn-lg">
                         <i class="icon-download4 mr-2"></i>Download Demo CSV Template
                     </a>
                 </div>

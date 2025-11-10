@@ -21,9 +21,9 @@ class Student extends Model
         'email',
         'app_number',
         'physically_challanged_category',
-        'folder_number',
         'roll_number',
-        'center_detail'
+        'center_detail',
+        'is_download'
     ];
 
     public function center()

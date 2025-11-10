@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','middleware' => 'auth:user'], 
         /*******************STUDENT ROUTE START*************/       
         Route::get('student/import',[StudentController::class,'importForm'])->name('student.import');
         Route::post('student/import',[StudentController::class,'import'])->name('student.import.store');
+        Route::get('student/export-template',[StudentController::class,'exportTemplate'])->name('student.export.template');
         Route::get('student/export-demo',[StudentController::class,'exportDemo'])->name('student.export.demo');
         Route::resource('student',StudentController::class);
         /*******************STUDENT ROUTE END*************/   

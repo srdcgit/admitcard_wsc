@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78bf9e6cfe92f6ab7203d3759f75ea0d",
+    "content-hash": "c6afca9601f478dbfd403f293337dbe2",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -2564,6 +2564,63 @@
                 }
             ],
             "time": "2022-10-28T22:51:32+00:00"
+        },
+        {
+            "name": "ogwebsolutions/laravel-form-builder",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OG-Web-Solutions/laravel-form-builder.git",
+                "reference": "c7dc93d8028115097a767e9c093d8ebb4a3838be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OG-Web-Solutions/laravel-form-builder/zipball/c7dc93d8028115097a767e9c093d8ebb4a3838be",
+                "reference": "c7dc93d8028115097a767e9c093d8ebb4a3838be",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.0",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ogwebsolutions\\FormBuilder\\FormBuilderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ogwebsolutions\\FormBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "OG Web Solutions",
+                    "email": "support@ogwebsolutions.com"
+                }
+            ],
+            "description": "A customizable Drag & Drop form builder package for Laravel that allows you to create forms with ease.",
+            "keywords": [
+                "Laravel form builder",
+                "drag and drop",
+                "form builder",
+                "formbuilder",
+                "laravel",
+                "laravel-form-builder"
+            ],
+            "support": {
+                "email": "support@ogwebsolutions.com",
+                "issues": "https://github.com/OG-Web-Solutions/laravel-form-builder/issues",
+                "source": "https://github.com/OG-Web-Solutions/laravel-form-builder"
+            },
+            "time": "2025-08-19T11:11:16+00:00"
         },
         {
             "name": "phenx/php-font-lib",

@@ -69,6 +69,26 @@ Route::get('cd', function() {
     Artisan::call('view:clear');
     return 'DONE';
   });
+
+/****************** PUBLIC FORM ROUTES ****************/
+Route::get('form/{slug}', function ($slug) {
+    $form = \App\Models\Form::where('slug', $slug)->where('is_active', true)->firstOrFail();
+    return view('forms.public', compact('form'));
+})->name('form.public.show');
+
+Route::post('form/{slug}', function (\Illuminate\Http\Request $request, $slug) {
+    $form = \App\Models\Form::where('slug', $slug)->where('is_active', true)->firstOrFail();
+    $payload = $request->except(['_token']);
+    \App\Models\FormSubmission::create([
+        'form_id' => $form->id,
+        'submission_data' => $payload,
+        'submitted_by' => $request->ip(),
+    ]);
+    if ($request->wantsJson()) {
+        return response()->json(['success' => true]);
+    }
+    return back()->with('success', 'Submitted!');
+})->name('form.public.submit');
   Route::get('migrate', function() {
     Artisan::call('config:cache');
     Artisan::call('migrate');

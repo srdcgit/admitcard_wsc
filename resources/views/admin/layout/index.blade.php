@@ -185,6 +185,18 @@
 								<span>Queries</span>
 							</a>
 						</li>
+						<li class="nav-item">
+							<a href="{{route('admin.form.builder')}}" class="nav-link {{Request::is('admin/form-builder')?'active':''}}">
+								<i class="icon-pencil"></i>
+								<span>Form Builder</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{route('admin.forms.index')}}" class="nav-link {{Request::is('admin/forms')?'active':''}}">
+								<i class="icon-list"></i>
+								<span>All Forms</span>
+							</a>
+						</li>
 					</ul>
 				</div>
 				<!-- /main navigation -->

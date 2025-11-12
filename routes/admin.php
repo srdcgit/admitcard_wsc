@@ -4,6 +4,7 @@
 
 use App\Http\Controllers\Admin\CenterController;
 use App\Http\Controllers\Admin\DownloadController;
+use App\Http\Controllers\Admin\ExamCoordinatorController;
 use App\Http\Controllers\Admin\FormBuilderController;
 use App\Http\Controllers\Admin\QueryController;
 use App\Http\Controllers\Admin\StudentController;
@@ -58,6 +59,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:user'
         Route::delete('/form/{id}', [\App\Http\Controllers\Admin\FormController::class, 'destroy'])->name('form.destroy');
         Route::get('/form/{id}/edit', [\App\Http\Controllers\Admin\FormController::class, 'edit'])->name('form.edit');
         Route::put('/form/{id}', [\App\Http\Controllers\Admin\FormController::class, 'update'])->name('form.update');
+
+
+
+
+
+
+
+
+
+        /*******************EXAM COORDINATOR ROUTE START*************/
+
+        Route::resource('examcoordinator', ExamCoordinatorController::class);
+        /*******************EXAM COORDINATOR ROUTE END*************/
     });
 });
 /****************** ADMIN MIDDLEWARE PAGES ROUTES END****************/

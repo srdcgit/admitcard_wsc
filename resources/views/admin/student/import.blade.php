@@ -59,30 +59,61 @@
                             @enderror
                         </div>
                         <div class="col-md-6">
-                            <label>Upload CSV File <span class="text-danger">*</span></label>
+                            <label>Upload File <span class="text-danger">*</span></label>
                             <div class="form-group form-group-feedback form-group-feedback-left">
-                                <input type="file" class="form-control" name="csv_file" accept=".csv,.txt" required>
+                                <input 
+                                    type="file" 
+                                    class="form-control" 
+                                    name="csv_file" 
+                                    accept=".csv,.txt,.xlsx,.xls" 
+                                    required
+                                >
                                 <div class="form-control-feedback">
-                                    <i class="icon-file-text2 text-muted"></i>
+                                    <i class="icon-file-excel text-muted"></i>
                                 </div>
-                                <span class="form-text text-muted">Maximum file size: 10MB. Accepted formats: CSV, TXT</span>
+                                <span class="form-text text-muted">
+                                    Maximum file size: <strong>10MB</strong>.  
+                                    Accepted formats: <strong>CSV</strong>
+                                </span>
                             </div>
                             @error('csv_file')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        
                     </div>
 
                     <div class="alert alert-warning">
                         <h6><i class="icon-warning22"></i> CSV Format Requirements:</h6>
                         <ul class="mb-0">
-                            <li>First row must contain column headers (name, application_id, father_name, etc.)</li>
-                            <li>Column names are case-insensitive and can have spaces or underscores</li>
-                            <li>Required column: <strong>name</strong></li>
-                            <li>Optional columns: application_id, father_name, mother_name, dob_pass, dob, gender, phone, email, app_number, physically_challanged_category, folder_number, roll_number</li>
-                            <li>Date format for DOB: YYYY-MM-DD (e.g., 2000-01-15)</li>
+                            <li>
+                                <strong>Download the official demo template</strong> first and fill it with your student data.  
+                                <a href="{{ route('admin.student.export.template') }}" class="badge badge-info ml-1">Download Template</a>
+                            </li>
+                            <li>The <strong>first row</strong> must contain the column headers exactly as in the demo template.</li>
+                            <li>Column names are <strong>case-insensitive</strong> and can include spaces or underscores (e.g. <code>Candidate First Name</code> or <code>candidate_first_name</code> are both valid).</li>
+                            <li><strong>Required columns (in order):</strong>  
+                                <ul>
+                                    <li>application_id</li>
+                                    <li>candidate_first_name</li>
+                                    <li>candidate_last_name</li>
+                                    <li>candidate_mobile_number</li>
+                                    <li>dob</li>
+                                    <li>email</li>
+                                    <li>gender</li>
+                                    <li>category</li>
+                                    <li>skill_name</li>
+                                    <li>team_individual</li>
+                                    <li>current_state</li>
+                                    <li>current_district</li>
+                                </ul>
+                            </li>
+                            <li><strong>Date format for DOB:</strong> YYYY-MM-DD (e.g., 2000-01-15)</li>
+                            <li>Accepted file formats: <strong>CSV</strong> (max 10MB)</li>
+                            <li>⚠️ <strong>Tip:</strong> Always use the <em>exported demo template</em> to avoid structure errors and save as .CSV UTF-8 (Comma delimited).</li>
                         </ul>
                     </div>
+                    
 
                     <div class="text-right">
                         <a href="{{route('admin.student.index')}}" class="btn btn-secondary">Cancel</a>

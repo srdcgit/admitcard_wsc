@@ -185,16 +185,35 @@
 								<span>Queries</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a href="{{route('admin.form.builder')}}" class="nav-link {{Request::is('admin/form-builder')?'active':''}}">
+
+						<!-- ✅ Dropdown Menu for Form Section -->
+						<li class="nav-item nav-item-submenu {{ Request::is('admin/form-builder') || Request::is('admin/forms*') ? 'nav-item-open' : '' }}">
+							<a href="#" class="nav-link">
 								<i class="icon-pencil"></i>
-								<span>Form Builder</span>
+								<span>Forms</span>
 							</a>
+				
+							<ul class="nav nav-group-sub" data-submenu-title="Forms" 
+								style="{{ Request::is('admin/form-builder') || Request::is('admin/forms*') ? 'display: block;' : '' }}">
+								<li class="nav-item">
+									<a href="{{ route('admin.form.builder') }}" 
+									   class="nav-link {{ Request::is('admin/form-builder') ? 'active' : '' }}">
+										Form Builder
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="{{ route('admin.forms.index') }}" 
+									   class="nav-link {{ Request::is('admin/forms*') ? 'active' : '' }}">
+										All Forms
+									</a>
+								</li>
+							</ul>
 						</li>
+						<!-- ✅ End Dropdown -->
 						<li class="nav-item">
-							<a href="{{route('admin.forms.index')}}" class="nav-link {{Request::is('admin/forms')?'active':''}}">
-								<i class="icon-list"></i>
-								<span>All Forms</span>
+							<a href="{{route('admin.examcoordinator.index')}}" class="nav-link {{Request::is('admin/examcoordinator')?'active':''}}">
+								<i class="icon-users"></i>
+								<span>Exam Coordinator</span>
 							</a>
 						</li>
 					</ul>

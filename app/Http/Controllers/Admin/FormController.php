@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Form;
 use App\Models\FormSubmission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class FormController extends Controller
@@ -64,7 +65,7 @@ class FormController extends Controller
 		FormSubmission::create([
 			'form_id' => $form->id,
 			'submission_data' => $payload,
-			'submitted_by' => $request->user('user')->id ?? $request->ip(),
+			'submitted_by' => Auth::user()->id ?? $request->ip(),
 		]);
 
 		if ($request->wantsJson()) {

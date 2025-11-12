@@ -48,11 +48,15 @@ class AuthController extends Controller
         //User Authentication Code End
     }
     
-    public function logout()
+    public function logout(Request $request)
     {        
-        Auth::logout();
-        toastr()->success('You Logout Successfully');
-        return redirect('/');
+        Auth::guard('user')->logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    toastr()->success('You have logged out successfully.');
+    return redirect('/');
     }
     public function queryStore(Request $request)
     {        

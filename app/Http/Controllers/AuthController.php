@@ -102,7 +102,7 @@ class AuthController extends Controller
             $dobFormat2 = $inputDob->format('Y-m-d');  // YYYY-MM-DD
             
             // Search for student - check roll_number AND dob (try multiple date formats)
-            $student = Student::where('roll_number', trim($request->roll_number))
+            $student = Student::where('application_id', trim($request->roll_number))
                         ->where(function($query) use ($dobForQuery, $dobFormat1, $dobFormat2, $inputDob) {
                             // Try multiple date formats to handle different storage types
                             $query->where(function($q) use ($dobForQuery, $dobFormat1, $dobFormat2, $inputDob) {

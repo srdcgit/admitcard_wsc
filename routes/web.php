@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExamCoordinatorPublicController;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -23,30 +24,48 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AuthController::class,'home'])->name('home');
 
 
-Route::get('/scan', function (Request $request) {
-  // Store QR data in session temporarily
-  session([
-      'roll' => $request->get('roll'),
-      'name' => $request->get('name'),
-      'center' => $request->get('center'),
-  ]);
+// Route::get('/scan', function (Request $request) {
+//   // Store QR data in session temporarily
+//   session([
+//       'roll' => $request->get('roll'),
+//       'name' => $request->get('name'),
+//       'center' => $request->get('center'),
+//   ]);
 
-  // Redirect to a clean page
-  return redirect()->route('scan.display');
-})->name('scan');
+//   // Redirect to a clean page
+//   return redirect()->route('scan.display');
+// })->name('scan');
 
-Route::get('/scan/display', function () {
-  $roll = session('roll');
-  $name = session('name');
-  $center = session('center');
+// Route::get('/scan/display', function () {
+//   $roll = session('roll');
+//   $name = session('name');
+//   $center = session('center');
 
-  if (!$roll || !$name || !$center) {
-      return "<h2 style='text-align:center;color:red;'>⚠️ Invalid QR or Session Expired</h2>";
+//   if (!$roll || !$name || !$center) {
+//       return "<h2 style='text-align:center;color:red;'>⚠️ Invalid QR or Session Expired</h2>";
+//   }
+
+//   return view('scan_result', compact('roll', 'name', 'center'));
+// })->name('scan.display');
+
+Route::get('/scan/{roll}', function ($roll) {
+  $student = \App\Models\Student::where('application_id', $roll)->first();
+
+  if (!$student) {
+      return "<h2 style='text-align:center;color:red;'>⚠️ Invalid QR</h2>";
   }
 
-  return view('scan_result', compact('roll', 'name', 'center'));
-})->name('scan.display');
+  return view('scan_result', [
+      'roll' => $student->application_id,
+      'name' => $student->candidate_first_name,
+      'lastname' => $student->candidate_last_name,
+      'center' => $student->center->name
+  ]);
+})->name('scan');
 
+
+Route::get('/exam-coordinator/register', [ExamCoordinatorPublicController::class, 'create'])->name('examcoordinator.public.create');
+Route::post('/exam-coordinator/register', [ExamCoordinatorPublicController::class, 'store'])->name('examcoordinator.public.store');
 
 Route::view('login','auth.login');
 Route::view('query','front.query.index');

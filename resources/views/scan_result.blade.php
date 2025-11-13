@@ -11,7 +11,7 @@
     <div class="card shadow-lg p-4 mx-auto" style="max-width: 450px;">
         <h2 class="text-success mb-4">✅ QR Code Scanned Successfully</h2>
         <p><strong>Roll Number:</strong> {{ $roll }}</p>
-        <p><strong>Name:</strong> {{ $name }}</p>
+        <p><strong>Name:</strong> {{ $name }} {{ $lastname }}</p>
         <p><strong>Center:</strong> {{ $center }}</p>
         <hr>
         <p class="text-muted small">© {{ date('Y') }} Admit Card Verification System</p>

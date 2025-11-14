@@ -41,11 +41,11 @@
                     @foreach ($centers  as $key => $center)
                     <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$center->name ?? '-'}}</td>
-                        <td>{{$center->district ?? '-'}}</td>
-                        <td>{{$center->address ?? '-'}}</td>
-                        <td>{{$center->contact_person ?? '-'}}</td>
-                        <td>{{$center->contact_number ?? '-'}}</td>
+                        <td>{{$center->name}}</td>
+                        <td>{{$center->district}}</td>
+                        <td>{{$center->address}}</td>
+                        <td>{{$center->contact_person}}</td>
+                        <td>{{$center->contact_number}}</td>
                         <td>
                             <a href="{{route('admin.center.edit',$center->id)}}" class="btn btn-primary btn-sm">
                                 <i class="icon-pencil7"></i> Edit

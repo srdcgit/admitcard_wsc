@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Admit Card - Odisha Skills 2023</title>
+    <title>Admit Card - Odisha Skills 2025</title>
 
     <style>
         body {
@@ -125,8 +125,8 @@
 
         <!-- HEADER -->
         <div class="header">
-            <img src="{{ asset('skilllogo.png') }}" class="logo-left">
-            <img src="{{ asset('wsc.png') }}" class="logo-right">
+            <img src="{{ asset('skilllogo.png') }}" class="logo-left" style="height: 90px;">
+            <img src="{{ asset('wsc.png') }}" class="logo-right" style="height: 110px;">
 
             <div class="header-title">Odisha Skill Development Authority</div>
             <div class="header-sub">Government of Odisha</div>
@@ -144,8 +144,8 @@
                 <td rowspan="12" class="right-box">
 
                     <!-- Photo -->
-                    <img src="{{ asset('uploaded_files/' . $student->folder_number . '/passportphoto.jpg') }}"
-                        class="candidate-photo">
+                    {{-- <img src="{{ asset('uploaded_files/' . $student->folder_number . '/passportphoto.jpg') }}"
+                        class="candidate-photo"> --}}
 
                     <!-- QR CODE -->
                     <div class="qr-box">
@@ -166,18 +166,13 @@
             </tr>
 
             <tr>
-                <td class="label">Aadhar Number</td>
-                <td>: <b>{{ $student->aadhar }}</b></td>
-            </tr>
-
-            <tr>
                 <td class="label">Email Address</td>
                 <td>: <b>{{ $student->email }}</b></td>
             </tr>
 
             <tr>
                 <td class="label">Mobile Number</td>
-                <td>: <b>{{ $student->phone }}</b></td>
+                <td>: <b>{{ $student->candidate_mobile_number }}</b></td>
             </tr>
 
             <tr>
@@ -188,11 +183,6 @@
             <tr>
                 <td class="label">Venue Address</td>
                 <td>: <b>{{ $student->center->address }}</b></td>
-            </tr>
-
-            <tr>
-                <td class="label">Panel Name</td>
-                <td>: <b>{{ $student->panel_name }}</b></td>
             </tr>
 
             <tr>
@@ -234,10 +224,10 @@
                 <li>The candidate must bring any essential Kit/Tools/Items etc. as required and instructed by
                     World Skill Center.</li>
 
-                <li>Electronic devices like calculators, tables, pager, mobile phones or any electronic gadgets
+                <li>Electronic devices like calculators, tablets, pager, mobile phones or any electronic gadgets
                     are not allowed inside the examination hall.</li>
 
-                <li> Follow the Government COVID guidelines throughout the examination process.</li>
+                {{-- <li> Follow the Government COVID guidelines throughout the examination process.</li> --}}
             </ul>
         </div>
 

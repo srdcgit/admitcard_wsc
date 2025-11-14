@@ -40,6 +40,7 @@ class CenterController extends Controller
         try{
             $this->validate($request,[
                 'name' => 'required|string|max:255',
+                'district' => 'required|string|max:255',
                 'address' => 'required|string',
                 'contact_person' => 'required|string|max:255',
                 'contact_number' => 'required|string|max:20',
@@ -90,6 +91,7 @@ class CenterController extends Controller
         try{
             $this->validate($request,[
                 'name' => 'required|string|max:255',
+                'district' => 'required|string|max:255',
                 'address' => 'required|string',
                 'contact_person' => 'required|string|max:255',
                 'contact_number' => 'required|string|max:20',

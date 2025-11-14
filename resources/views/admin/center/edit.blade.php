@@ -38,6 +38,18 @@
                             @enderror
                         </div>
                         <div class="col-md-6">
+                            <label>District <span class="text-danger">*</span></label>
+                            <div class="form-group form-group-feedback form-group-feedback-left">
+                                <input type="text" class="form-control" value="{{old('district', $center->district)}}" placeholder="Enter district" name="district" required>
+                                <div class="form-control-feedback">
+                                    <i class="icon-map text-muted"></i>
+                                </div>
+                            </div>
+                        </div>
+                        @error('district')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <div class="col-md-6">
                             <label>Contact Person <span class="text-danger">*</span></label>
                             <div class="form-group form-group-feedback form-group-feedback-left">
                                 <input type="text" class="form-control" value="{{old('contact_person', $center->contact_person)}}" placeholder="Enter contact person name" name="contact_person" required>

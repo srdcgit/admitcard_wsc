@@ -128,9 +128,9 @@
             <img src="{{ asset('skilllogo.png') }}" class="logo-left" style="height: 90px;">
             <img src="{{ asset('wsc.png') }}" class="logo-right" style="height: 110px;">
 
-            <div class="header-title">Odisha Skill Development Authority</div>
+            <div class="header-title">World Skill Center</div>
             <div class="header-sub">Government of Odisha</div>
-            <div class="header-sub"><strong>Admit Card for Odisha Skills - 2025 (Level-1)</strong></div>
+            <div class="header-sub"><strong>Admit Card for Online CBT Examination ODISHA SKILLS 2025</strong></div>
         </div>
 
         <div class="purple-line"></div>
@@ -187,7 +187,7 @@
 
             <tr>
                 <td class="label">Skill/Trade</td>
-                <td>: <b>{{ $student->trade }}</b></td>
+                <td>: <b>{{ $student->skill_name }}</b></td>
             </tr>
 
             <tr>
@@ -198,11 +198,6 @@
             <tr>
                 <td class="label">Exam Time</td>
                 <td>: <b>11:00 AM to 12:00 PM</b></td>
-            </tr>
-
-            <tr>
-                <td class="label">Level</td>
-                <td>: <b>Level-1</b></td>
             </tr>
         </table>
 

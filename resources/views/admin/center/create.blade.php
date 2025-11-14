@@ -86,6 +86,18 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="col-md-6">
+                            <label>Student Limit <span class="text-danger">*</span></label>
+                            <div class="form-group form-group-feedback form-group-feedback-left">
+                                <input type="number" class="form-control" value="{{old('student_limit')}}" placeholder="Enter student limit" name="student_limit" required>
+                                <div class="form-control-feedback">
+                                    <i class="icon-users text-muted"></i>
+                                </div>
+                            </div>
+                        </div>
+                        @error('student_limit')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="text-right">
                         <a href="{{route('admin.center.index')}}" class="btn btn-secondary">Cancel</a>

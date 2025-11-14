@@ -44,6 +44,7 @@ class CenterController extends Controller
                 'address' => 'required|string',
                 'contact_person' => 'required|string|max:255',
                 'contact_number' => 'required|string|max:20',
+                'student_limit' => 'required|integer',
             ]);
             
             Center::create($request->all());
@@ -95,6 +96,7 @@ class CenterController extends Controller
                 'address' => 'required|string',
                 'contact_person' => 'required|string|max:255',
                 'contact_number' => 'required|string|max:20',
+                'student_limit' => 'required|integer',
             ]);
             
             $center = Center::findOrFail($id);

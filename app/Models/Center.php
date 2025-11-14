@@ -10,5 +10,5 @@ class Center extends Model
     use HasFactory;
 
     protected $table = 'centers';
-    protected $fillable = ['name','district', 'address', 'contact_person', 'contact_number'];
+    protected $fillable = ['name','district', 'address', 'contact_person', 'contact_number', 'student_limit'];
 }

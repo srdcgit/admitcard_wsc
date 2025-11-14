@@ -33,6 +33,7 @@
                         <th>Address</th>
                         <th>Contact Person</th>
                         <th>Contact Number</th>
+                        <th>Student Limit</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@
                         <td>{{$center->address}}</td>
                         <td>{{$center->contact_person}}</td>
                         <td>{{$center->contact_number}}</td>
+                        <td>{{$center->student_limit}}</td>
                         <td>
                             <a href="{{route('admin.center.edit',$center->id)}}" class="btn btn-primary btn-sm">
                                 <i class="icon-pencil7"></i> Edit
